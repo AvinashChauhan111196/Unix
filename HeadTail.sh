@@ -1,9 +1,23 @@
-#!/bin/bash -x 
+#!/bin/bash -x
 
-Result=$((RANDOM%2))
+tail=0;
+head=0;
 
-if [[ ${Result} -eq 0 ]]; then
-    echo HEADS
-elif [[ ${Result} -eq 1 ]]; then
-    echo TAILS
+while(($head<11 || $tail<11))
+
+do
+   coin=$((RANDOM%2))
+    if(($coin==0))
+     then
+	  ((head++))
+    else
+        ((tail++))
+    fi
+done
+
+if(($tail<$head))
+then
+echo "Head Wins"
+else
+echo "Tail wins"
 fi
